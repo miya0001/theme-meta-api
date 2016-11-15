@@ -4,7 +4,7 @@ This is a WordPress plugin that displays metadata of the current theme as JSON A
 
 ## Endpoints
 
-### /theme-meta/
+### `/theme-meta/`
 
 ```
 $ curl http://vccw.dev/theme-meta/ | jq .
@@ -17,7 +17,7 @@ $ curl http://vccw.dev/theme-meta/ | jq .
 }
 ```
 
-### /theme-tags/
+### `/theme-tags/`
 
 ```
 $ curl http://vccw.dev/theme-tags/ | jq .
@@ -43,7 +43,7 @@ $ curl http://vccw.dev/theme-tags/ | jq .
 ]
 ```
 
-### /theme-features/
+### `/theme-features/`
 
 ```
 $ curl http://vccw.dev/theme-features/ | jq .
