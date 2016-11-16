@@ -13,7 +13,8 @@ $ curl http://vccw.dev/theme-meta/ | jq .
   "version": "1.3",
   "stylesheet": "twentysixteen",
   "template": "twentysixteen",
-  "textdomain": "twentysixteen"
+  "textdomain": "twentysixteen",
+  "is_textdomain_loaded": true
 }
 ```
 
