@@ -35,13 +35,28 @@ add_action( 'template_redirect', function() {
 	} elseif ( isset( $wp_query->query['theme-meta'] ) ) {
 		$theme = wp_get_theme();
 		header( "content-type: application/json" );
+        if ( defined( "IS_TEXTDOMAIN_LOADED" ) && true === IS_TEXTDOMAIN_LOADED ) {
+            $is_textdomain_loaded = true;
+        } else {
+            $is_textdomain_loaded = false;
+        }
 		echo json_encode( array(
 			"name" => $theme->name,
 			"version" => $theme->version,
 			"stylesheet" => $theme->stylesheet,
 			"template" => $theme->template,
 			"textdomain" => $theme->get( "TextDomain" ),
+			"is_textdomain_loaded" => $is_textdomain_loaded,
 		) );
 		exit;
 	}
 } );
+
+add_filter( "override_load_textdomain", function( $override, $domain, $mofile ) {
+    if ( $domain === wp_get_theme()->get( "TextDomain" ) ) {
+        if ( ! defined( "IS_TEXTDOMAIN_LOADED" ) ) {
+            define( "IS_TEXTDOMAIN_LOADED", true );
+        }
+    }
+    return $override;
+}, 10, 3 );
