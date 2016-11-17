@@ -1,6 +1,14 @@
-# Theme Meta API
+# Theme Review Helper
 
-This is a WordPress plugin that displays metadata of the current theme as JSON API.
+Please do not install this plugin absolutely in the production environment!
+
+This WordPress plugin provides following.
+
+* Provides simple JSON API of the metadata for current theme.
+* Catch JavaScript error and set `data-jserror` attribute to the `<body>`.
+
+This plugin is designed for:
+https://github.com/miya0001/wp-theme-spec
 
 ## Endpoints
 

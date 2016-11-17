@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:     Theme Meta API
- * Plugin URI:      https://github.com/miya0001/theme-meta-api
+ * Plugin Name:     Theme Review Helper
+ * Plugin URI:      https://github.com/miya0001/theme-review-helper
  * Version:         0.1.0
  */
 
@@ -60,3 +60,7 @@ add_filter( "override_load_textdomain", function( $override, $domain, $mofile ) 
     }
     return $override;
 }, 10, 3 );
+
+add_action( 'wp_head', function(){
+    echo '<script>window.onerror=function(msg){document.body.setAttribute("data-jserror", msg)}</script>';
+} );
