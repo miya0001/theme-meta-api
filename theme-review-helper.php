@@ -62,5 +62,23 @@ add_filter( "override_load_textdomain", function( $override, $domain, $mofile ) 
 }, 10, 3 );
 
 add_action( 'wp_head', function(){
-    echo '<script>window.onerror=function(msg){document.body.setAttribute("data-jserror", msg)}</script>';
+?>
+<script>
+( function() {
+	window.addEventListener( 'error', function( e ) {
+		var msg = e.message + " in " + e.filename + " on line " + e.lineno;
+		document.body.setAttribute( "data-jserror", msg );
+	} );
+
+	document.addEventListener( 'DOMContentLoaded', function() {
+		var img = document.getElementsByTagName( "img" );
+		for ( var i = 0; i < img.length; i++ ) {
+			img[i].addEventListener( 'error', function( e ) {
+				document.body.setAttribute( "data-imgerror", this.src + " not found." );
+			} );
+		}
+	} );
+} )();
+</script>';
+<?php
 } );
