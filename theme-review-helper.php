@@ -65,8 +65,11 @@ add_action( 'wp_head', function(){
 ?>
 <script>
 ( function() {
+	var home_url = "<?php echo home_url(); ?>";
+
 	window.addEventListener( 'error', function( e ) {
 		var msg = e.message + " in " + e.filename + " on line " + e.lineno;
+		msg = msg.replace( home_url, "" );
 		document.body.setAttribute( "data-jserror", msg );
 	} );
 
@@ -74,7 +77,9 @@ add_action( 'wp_head', function(){
 		var img = document.getElementsByTagName( "img" );
 		for ( var i = 0; i < img.length; i++ ) {
 			img[i].addEventListener( 'error', function( e ) {
-				document.body.setAttribute( "data-imgerror", this.src + " not found." );
+				var msg = this.src + " not found.";
+				msg = msg.replace( home_url, "" );
+				document.body.setAttribute( "data-imgerror", msg );
 			} );
 		}
 	} );
