@@ -1,11 +1,14 @@
 # Theme Review Helper
 
+[![Build Status](https://travis-ci.org/miya0001/theme-review-helper.svg?branch=master)](https://travis-ci.org/miya0001/theme-review-helper)
+
 Please do not install this plugin absolutely in the production environment!
 
 This WordPress plugin provides following.
 
 * Provides simple JSON API of the metadata for current theme.
-* Catch JavaScript error and set `data-jserror` attribute to the `<body>`.
+* Catch JavaScript error and set `data-jserror` attribute to the `<body />`.
+* Catch image not found and set `data-imgerror` attribute to the `<body />`.
 
 This plugin is designed for:
 https://github.com/miya0001/wp-theme-spec
