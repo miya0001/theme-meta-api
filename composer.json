@@ -1,0 +1,5 @@
+{
+    "scripts": {
+      "test": "phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php') && phpunit"
+    }
+}
